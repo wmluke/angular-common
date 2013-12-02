@@ -4,56 +4,13 @@ Some common Angular JS directives and services that I reuse across my various pr
 
 ## Flash
 
-A flash service and directive for setting and displaying flash messages.  Specifically, the flash service is a publisher of flash messages and the flash directive is a subscriber to flash messages.  The flash directive leverages the Twitter Bootstrap Alert component.
-
-### Usage
-
-```html
-<!-- Subscribe to flash messages. -->
-<div flash class="alert" style="display:none;">
-    <strong class="alert-heading">{{flash.heading}}</strong>
-    <span class="alert-message">{{flash.message}}</span>
-</div>
-
-```
-
-```javascript
-
-var FooController = function(flash){
-    // Publish a success flash
-    flash.success = 'Do it live!';
-};
-
-FooController.$inject = ['flash'];
-
-```
-
-#### Flash Service API
-
-##### Properties
-Set and get flash messages with the following flash properties...
-
-* success
-* info
-* warn
-* error
-
-##### Methods
-
-subscribe:
-    Register a subscriber function to be notified of flash messages.
-
-### Installation
-
-Load the `angular-common.bootstrap-directives` and the `angular-common.flash-service` modules in your app.
-
-```javascript
-angular.module('app', ['angular-common.bootstrap-directives', 'angular-common.flash-service']);
-```
+Flash has been extracted to https://github.com/wmluke/angular-flash.
 
 ## startInterval
 
-The `startInterval` service provides an Angular aware interval.
+The `startInterval` service provides an Angular aware interval.  
+
+NOTE: Angular 1.2 now has a built-in [interval wrapper](http://docs.angularjs.org/api/ng.$interval).
 
 ### Usage
 
